@@ -1,0 +1,114 @@
+generator client {
+  provider = "go run github.com/steebchen/prisma-client-go"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           Int            @id @default(autoincrement())
+  email        String         @unique
+  password     String
+  projects     Projects[]
+  experiences  Experience[]
+  tools        Tools[]
+  links        Links[]
+  resume       Resume?
+  bio          Bio?
+  RefreshToken RefreshToken[]
+}
+
+model RefreshToken {
+  id        String   @id @default(uuid())
+  token     String   @unique
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+}
+
+model Bio {
+  id            Int     @id @default(autoincrement())
+  image         String
+  imagePublicId String?
+  name          String  @unique
+  title         String
+  description   String
+  userId        Int     @unique
+  user          User    @relation(fields: [userId], references: [id])
+}
+
+model Links {
+  id     Int    @id @default(autoincrement())
+  title  String @unique
+  url    String
+  userId Int    @unique
+  User   User   @relation(fields: [userId], references: [id])
+}
+
+model Resume {
+  file         String  @unique
+  filePublicId String?
+  userId       Int     @unique
+  User         User    @relation(fields: [userId], references: [id])
+}
+
+model Tools {
+  id              Int               @id @default(autoincrement())
+  user            User?             @relation(fields: [userId], references: [id])
+  userId          Int               @unique
+  programmingLang ProgrammingLang[] @relation("ProgrammingLangTools")
+  softwareTools   SoftwareTools[]   @relation("ToolsSoftware")
+  frameworks      Frameworks[]      @relation("ToolsFramework")
+  databases       Databases[]       @relation("ToolsDatabase")
+}
+
+model ProgrammingLang {
+  id    Int     @id @default(autoincrement())
+  lang  String  @unique
+  tools Tools[] @relation("ProgrammingLangTools")
+}
+
+model SoftwareTools {
+  id    Int     @id @default(autoincrement())
+  name  String  @unique
+  tools Tools[] @relation("ToolsSoftware")
+}
+
+model Frameworks {
+  id    Int     @id @default(autoincrement())
+  name  String  @unique
+  tools Tools[] @relation("ToolsFramework")
+}
+
+model Databases {
+  id    Int     @id @default(autoincrement())
+  name  String  @unique
+  tools Tools[] @relation("ToolsDatabase")
+}
+
+model Projects {
+  id              Int     @id @default(autoincrement())
+  title           String  @unique
+  preview         String
+  previewPublicId String?
+  url             String
+  github          String
+  description     String
+  userId          Int
+  user            User?   @relation(fields: [userId], references: [id])
+}
+
+model Experience {
+  id          Int    @id @default(autoincrement())
+  company     String @unique
+  companyUrl  String
+  position    String
+  startDate   String
+  endDate     String
+  description String
+  userId      Int
+  user        User?  @relation(fields: [userId], references: [id])
+}
