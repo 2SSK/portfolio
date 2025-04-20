@@ -6,7 +6,7 @@ export default function ResumePage() {
       <iframe
         src="/resume_new.pdf"
         title="PDF Viewer"
-        className="w-[60%] h-[90%]"
+        className="w-[60%] h-[80%]"
       />
       <div className="flex gap-4 mt-4">
         <Button>Upload</Button>

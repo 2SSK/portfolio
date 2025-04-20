@@ -40,36 +40,31 @@ export const Socials = [
   },
 ];
 
-export const languages = [
-  "c",
-  "c++",
-  "Golang",
-  "Python",
-  "Bash Scripting",
-  "JavaScript",
-  "TypeScript",
-  "Markdown",
-];
+export const tools = {
+  languages: [
+    "c",
+    "c++",
+    "Golang",
+    "Python",
+    "Bash Scripting",
+    "JavaScript",
+    "TypeScript",
+    "Markdown",
+  ],
 
-export const tools = [
-  "Linux",
-  "NeoVim",
-  "VSCode",
-  "Vercel",
-  "Render",
-  "Postman",
-  "Compass",
-];
+  software: [
+    "Linux",
+    "NeoVim",
+    "VSCode",
+    "Vercel",
+    "Render",
+    "Postman",
+    "Compass",
+  ],
 
-export const frameworks = [
-  "Reactjs",
-  "Nextjs",
-  "Nodejs",
-  "Expressjs",
-  "GoFiber",
-];
-
-export const databases = ["MySQL", "mongoDB", "POSTGRESQL"];
+  frameworks: ["Reactjs", "Nextjs", "Nodejs", "Expressjs", "GoFiber"],
+  databases: ["MySQL", "mongoDB", "PostgreSQL"],
+};
 
 export const Projects = [
   {
