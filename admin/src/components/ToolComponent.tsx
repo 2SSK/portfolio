@@ -17,7 +17,7 @@ interface ToolComponentProps {
 
 const ToolComponent = ({ label, tools }: ToolComponentProps) => {
   return (
-    <div className="w-full max-w-xs h-auto min-h-116 flex flex-col justify-between border border-gray-800 rounded-md p-4">
+    <div className="w-full max-w-xs h-auto md:min-h-116 flex flex-col justify-between border border-gray-800 rounded-md p-4">
       <div className="flex flex-col gap-2">
         <span className="text-center font-semibold text-xl text-blue-500">
           {label}
@@ -33,7 +33,7 @@ const ToolComponent = ({ label, tools }: ToolComponentProps) => {
         ))}
       </div>
       <Dialog>
-        <DialogTrigger>
+        <DialogTrigger asChild>
           <Button variant="outline" className="w-full mt-4">
             Add
           </Button>

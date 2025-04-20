@@ -15,7 +15,7 @@ import SidebarToggleButton from "./Sidebar/SidebarToggleButton";
 
 const Navbar = () => {
   return (
-    <div className="w-full bg-secondary flex items-center justify-between px-4 py-2 sticky top-0 z-50">
+    <div className="w-full bg-secondary flex items-center justify-between px-4 py-2 md:sticky md:top-0 md:z-50">
       <div className="inline-flex items-center gap-2">
         <SidebarToggleButton />
         <span className="text-xl font-bold font-sans">Dashboard</span>
