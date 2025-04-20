@@ -68,7 +68,7 @@ export const tools = {
 
 export const Projects = [
   {
-    iamge: coflowPreview,
+    image: coflowPreview,
     title: "Coflow",
     description:
       "A collaborative platform empowering teams to ideate, plan, and innovate seamlessly on a virtual canvas.",
@@ -77,7 +77,7 @@ export const Projects = [
   },
 
   {
-    iamge: jobPortalPreview,
+    image: jobPortalPreview,
     title: "JobFinder",
     description:
       "A modern job portal application built with React, TypeScript, Node.js and MongoDB.",
@@ -85,7 +85,7 @@ export const Projects = [
     link: "https://indeed-frontend.vercel.app/",
   },
   {
-    iamge: collegePreview,
+    image: collegePreview,
     title: "College Portal",
     description:
       "Built a dynamic college website with multiple pages using ReactJS and TailwindCSS.",
@@ -93,7 +93,7 @@ export const Projects = [
     link: "https://react-college-website.vercel.app/",
   },
   {
-    iamge: textEditorPreview,
+    image: textEditorPreview,
     title: "TextEditor GUI",
     description:
       "Built a lightweight and functional text editor built using C++ and the FLTK library. This project demonstrates clean, modular design and effective use of modern C++ features for creating GUI-based applications.",
