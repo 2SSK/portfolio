@@ -2,7 +2,8 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
-import logger from './utils/logger';
+import logger from "./utils/logger";
+import router from "./routes";
 
 const app = express();
 
@@ -34,9 +35,7 @@ app.use(
   }),
 );
 
-// Health Check
-app.get("/health", (req, res) => {
-  res.status(200).json({ status: "OK" });
-});
+// Routes
+app.use("/api", router);
 
 export default app;

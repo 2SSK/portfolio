@@ -1,17 +1,27 @@
 import { PrismaClient } from "@prisma/client";
 
-// Use SQLite for development, PostgreSQL for production
-const setupPrisma = (): PrismaClient => {
-  // For development
-  if (process.env.NODE_ENV !== "production") {
-    console.log("Using SQLite for development");
-    return new PrismaClient();
-  }
+// Properly declare global namespace augmentation
+declare global {
+  // eslint-disable-next-line no-var
+  var prisma: PrismaClient | undefined;
+}
 
-  // For production
-  console.log("Using PostgreSQL for production");
-  return new PrismaClient();
+// Set up Prisma with connection pooling
+const setupPrisma = (): PrismaClient => {
+  if (global.prisma) {
+    return global.prisma;
+  }
+  
+  const client = new PrismaClient();
+  
+  if (process.env.NODE_ENV !== "production") {
+    global.prisma = client;
+    console.log("Prisma client initialized (development)");
+  } else {
+    console.log("Prisma client initialized (production)");
+  }
+  
+  return client;
 };
 
-const prisma = setupPrisma();
-export { prisma };
+export const prisma = setupPrisma();
