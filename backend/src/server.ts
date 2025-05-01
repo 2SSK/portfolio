@@ -1,13 +1,19 @@
 import app from "./app";
 import "dotenv/config";
 import logger from "./utils/logger";
+import { prisma } from "./db/db";
 
 const PORT = process.env.PORT || 5000;
 
-app.get("/", (req, res) => {
-  res.send("Hello, World!");
-});
-
+// Start the server
 app.listen(PORT, () => {
   logger.info(`Server is running on port ${PORT}`);
+});
+
+// Graceful shutdown
+process.on("SIGINT", async () => {
+  if (prisma) {
+    await prisma.$disconnect();
+  }
+  process.exit(0);
 });
