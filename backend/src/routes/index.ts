@@ -1,4 +1,5 @@
 import express from "express";
+import { loginUser, registerUser } from "../controllers/userController";
 
 const router = express.Router();
 
@@ -7,9 +8,8 @@ router.get("/health", (req, res) => {
   res.status(200).json({ status: "OK" });
 });
 
-// Home Route
-router.get("/", (req, res) => {
-  res.status(200).send("Welcome to the API!\n");
-});
+// User Routes
+router.post("/user/login", loginUser);
+router.post("/user/register", registerUser);
 
 export default router;

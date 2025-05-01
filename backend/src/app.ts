@@ -35,6 +35,10 @@ app.use(
   }),
 );
 
+// Home Route
+app.get("/", (req, res) => {
+  res.status(200).send("Welcome to the API!\n");
+});
 // Routes
 app.use("/api", router);
 

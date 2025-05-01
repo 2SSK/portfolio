@@ -11,7 +11,7 @@
     "db:migrate:prod": "cp .env.production.local .env && prisma migrate deploy",
     "db:seed:dev": "cp .env.development.local .env && prisma db seed --schema=prisma/schema.dev.prisma",
     "db:seed:prod": "cp .env.production.local .env && prisma db seed",
-    "db:studio": "cp .env.development.local .env && prisma studio"
+    "db:studio": "cp .env.development.local .env && prisma studio --schema=prisma/schema.dev.prisma"
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
