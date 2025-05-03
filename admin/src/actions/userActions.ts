@@ -37,3 +37,20 @@ export const loginUser = async (user: User): Promise<LoginResponse> => {
     };
   }
 };
+
+export const registerUser = async (user: User): Promise<LoginResponse> => {
+  try {
+    const response = await axios.post<LoginResponse>(
+      `${API_URL}/user/register`,
+      user,
+    );
+
+    return response.data;
+  } catch (error) {
+    const apiError = error as ApiError;
+    return {
+      success: false,
+      message: apiError.response?.data?.message || "Registration failed",
+    };
+  }
+};
