@@ -9,7 +9,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
-import { ExternalLink, LogOut, Github } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import ModeToggle from "./mode-toggle";
 import SidebarToggleButton from "./Sidebar/SidebarToggleButton";
 import LogoutItem from "./LogoutItem";
@@ -42,17 +42,16 @@ const Navbar = () => {
             <ModeToggle />
             {/* Github repo link */}
             <DropdownMenuItem className="flex justify-between">
-              <span>Repository</span>
+              <a href="https://github.com/2SSK/portfolio.git" target="_blank">
+                <span>Repository</span>
+              </a>
               <Github />
             </DropdownMenuItem>
             {/* Fronted Btn */}
             <DropdownMenuItem className="flex justify-between">
-              <span> Frontend</span>
-              <ExternalLink />
-            </DropdownMenuItem>
-            {/* Backend Btn */}
-            <DropdownMenuItem className="flex justify-between">
-              <span>Backend</span>
+              <a href="https://ssk-portfolio.vercel.app/" target="_blank">
+                <span>Portfolio</span>
+              </a>
               <ExternalLink />
             </DropdownMenuItem>
             {/* Logout Btn */}
