@@ -12,6 +12,7 @@ import {
 import { ExternalLink, LogOut, Github } from "lucide-react";
 import ModeToggle from "./mode-toggle";
 import SidebarToggleButton from "./Sidebar/SidebarToggleButton";
+import LogoutItem from "./LogoutItem";
 
 const Navbar = () => {
   return (
@@ -55,10 +56,7 @@ const Navbar = () => {
               <ExternalLink />
             </DropdownMenuItem>
             {/* Logout Btn */}
-            <DropdownMenuItem className="flex justify-between">
-              <span>Logout</span>
-              <LogOut />
-            </DropdownMenuItem>
+            <LogoutItem />
           </DropdownMenuGroup>
         </DropdownMenuContent>
       </DropdownMenu>
