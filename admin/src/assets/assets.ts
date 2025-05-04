@@ -4,8 +4,10 @@ import coflowPreview from "./college-preview.png";
 import jobPortalPreview from "./jobPortPreview.png";
 import collegePreview from "./college-preview.png";
 import textEditorPreview from "./texteditor-preview.png";
+import user from "./user.png";
 
 export const assets = {
+  user,
   image,
   resume: "./resume_new.pdf",
   wallpaper,

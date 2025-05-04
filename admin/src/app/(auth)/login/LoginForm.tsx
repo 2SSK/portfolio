@@ -13,12 +13,14 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const router = useRouter();
   const { setLoggedIn } = useUser();
+  const { setUserEmail } = useUser();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const response: LoginResponse = await loginUser({ email, password });
     if (response.success) {
       setLoggedIn(true);
+      setUserEmail(email);
       router.push("/");
     } else {
       console.error("Login failed", response.message);
